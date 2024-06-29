@@ -1,0 +1,16 @@
+<div class="container mt-5">
+    <div class="card" *ngFor="let leggenda of leggende">
+        <div class="row g-0">
+            <div class="col-md-4 d-flex align-items-center justify-content-center">
+                <img src="https://via.placeholder.com/150" class="img-fluid rounded-circle" alt="Legend Image" style="width: 100px; height: 100px;">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{leggenda.nome}} {{leggenda.cognome}} </h5>
+                    <p class="card-text">{{leggenda.ruolo}}</p>
+                    <p class="card-text"><small class="text-muted">ID: {{leggenda.id}}</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
