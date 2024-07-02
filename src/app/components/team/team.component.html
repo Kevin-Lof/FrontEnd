@@ -1,0 +1,21 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-lg-3"></div>
+        <div class="col-12 col-lg-6">
+            <h1 class="text-center mt-4">Creazione Team</h1>
+            <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+                <div class="form-group">
+                    <label for="teamName" class="form-label">Nome del team</label>
+                    <input type="text" id="teamName" name="teamName" required class="form-control" ngModel>
+                    <label for="teamAvatar" class="form-label">Foto</label>
+                    <input type="text" id="teamAvatar" name="teamAvatar" class="form-control" ngModel>
+                </div>
+                <button type="submit" [disabled]="loginForm.invalid" class="btn btn-success mt-4">Crea team</button>
+            </form>
+
+        </div>
+        <div class="col-12 col-lg-3"></div>
+    </div>
+
+</div>

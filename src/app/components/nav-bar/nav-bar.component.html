@@ -24,10 +24,10 @@
             routerLinkActive="active">Utenti</a>
           </li>
           
-          <!-- //<li *ngIf="user" class="nav-item">
-            //<a class="nav-link" [routerLink]="['/leghe']"
-            routerLinkActive="active">Leghe</a>
-          </li> -->
+           <li *ngIf="user" class="nav-item">
+            <a class="nav-link" [routerLink]="['/team']"
+            routerLinkActive="active">Squadre</a>
+          </li> 
 
           <li *ngIf="user" class="nav-item">
             <a class="nav-link" [routerLink]="['/leggende']"

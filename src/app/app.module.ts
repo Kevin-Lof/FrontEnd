@@ -17,6 +17,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { UtentiComponent } from './components/utenti/utenti.component';
 import { UtentiDetailsComponent } from './components/utenti-details/utenti-details.component';
 import { LeggendeComponent } from './components/leggende/leggende.component';
+import { TeamComponent } from './components/team/team.component';
 
 
 
@@ -50,11 +51,17 @@ const routes: Route[] = [
     path: 'leggende',
     component: LeggendeComponent,
     
+  }, 
+  {
+    path: 'team',
+    component: TeamComponent,
+    
   }
+
   
 ];
 @NgModule({
-  declarations: [AppComponent, HomeComponent, NavBarComponent,RegisterComponent, LoginComponent, UtentiComponent, UtentiDetailsComponent, LeggendeComponent ],
+  declarations: [AppComponent, HomeComponent, NavBarComponent,RegisterComponent, LoginComponent, UtentiComponent, UtentiDetailsComponent, LeggendeComponent, TeamComponent ],
   imports: [BrowserModule, RouterModule.forRoot(routes), FormsModule, HttpClientModule],
     providers: [
     {
@@ -63,6 +70,7 @@ const routes: Route[] = [
       multi: true,
     },
   ],
+  
   bootstrap: [AppComponent],
 })
 export class AppModule {}

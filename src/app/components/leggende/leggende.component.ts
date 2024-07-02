@@ -19,6 +19,12 @@ export class LeggendeComponent implements OnInit {
     });
     
   }
-} {
 
-}
+  /*buyLegend(legend) {
+    if (this.teamService.buyLegend(legend)) {
+      this.legends = this.legends.filter(l => l !== legend);
+    } else {
+      alert('Non hai abbastanza crediti per acquistare questa leggenda.');
+    }
+  }*/
+} 

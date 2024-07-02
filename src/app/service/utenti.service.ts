@@ -13,10 +13,10 @@ export class UtentiService {
   apiUrL = environment.apiURL;
   constructor(private http:HttpClient) {   }
 
-  // getUtente() : Observable<UtentiResponse>{
-  //   return this.http.get<UtentiResponse>(`${this.apiUrL}utenti`);
-  // }
-  getUtente(): Observable<any> {
+   getUtente() : Observable<UtentiResponse>{
+     return this.http.get<UtentiResponse>(`${this.apiUrL}utenti`);
+   }
+  /*getUtente(): Observable<any> {
     return this.http.get<any>(this.apiUrL).pipe(
       catchError(this.handleError)
     );
@@ -26,6 +26,8 @@ export class UtentiService {
     console.error('An error occurred:', error.message);
     return throwError('Something bad happened; please try again later.');
   }
+  */
+ 
    getSpecificUtente(id: number) {
     return this.http.get<Utenti>(`${this.apiUrL}Utenti/${id}`);
    }
