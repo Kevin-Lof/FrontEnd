@@ -13,10 +13,11 @@ export class LeggendeComponent implements OnInit {
   constructor(private leggendaSrv: LeggendaService) { }
 
   ngOnInit() {
-    this.leggendaSrv.getLeggenda().subscribe((data) => {
-      console.log(data);
+    this.leggendaSrv.getPlayersByPosition().subscribe((data) => {
       this.leggende = data.content;
+      console.log(data)
     });
+   
     
   }
 
@@ -27,4 +28,4 @@ export class LeggendeComponent implements OnInit {
       alert('Non hai abbastanza crediti per acquistare questa leggenda.');
     }
   }*/
-} 
+}

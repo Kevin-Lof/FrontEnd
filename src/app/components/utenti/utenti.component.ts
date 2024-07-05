@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UtentiService } from 'src/app/service/utenti.service';
 import { Utenti, UtentiResponse } from 'src/app/models/utenti.interface';
 import { AuthService } from 'src/app/auth/auth.service';
+
 @Component({
   selector: 'app-utenti',
   templateUrl: './utenti.component.html',

@@ -4,6 +4,7 @@ export interface LeggendeResponse {
 
 export interface Leggende {
 
+
     id : number;
 
     nome : string; 
@@ -16,4 +17,5 @@ export interface Leggende {
 
     valore : number;
 
+    squadraId : number;
 }

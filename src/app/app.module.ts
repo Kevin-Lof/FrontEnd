@@ -18,6 +18,7 @@ import { UtentiComponent } from './components/utenti/utenti.component';
 import { UtentiDetailsComponent } from './components/utenti-details/utenti-details.component';
 import { LeggendeComponent } from './components/leggende/leggende.component';
 import { TeamComponent } from './components/team/team.component';
+import { LeagueComponent } from './components/league/league.component';
 
 
 
@@ -56,12 +57,16 @@ const routes: Route[] = [
     path: 'team',
     component: TeamComponent,
     
+  },
+  {
+    path: 'league',
+    component: LeagueComponent,
+    
   }
-
   
 ];
 @NgModule({
-  declarations: [AppComponent, HomeComponent, NavBarComponent,RegisterComponent, LoginComponent, UtentiComponent, UtentiDetailsComponent, LeggendeComponent, TeamComponent ],
+  declarations: [AppComponent, HomeComponent, NavBarComponent,RegisterComponent, LoginComponent, UtentiComponent, UtentiDetailsComponent, LeggendeComponent, TeamComponent, LeagueComponent ],
   imports: [BrowserModule, RouterModule.forRoot(routes), FormsModule, HttpClientModule],
     providers: [
     {

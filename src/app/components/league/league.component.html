@@ -1,0 +1,29 @@
+<div class="container mt-5">
+    <h2 class="mb-4">Crea la tua lega</h2>
+    
+    <!-- Form per la creazione della lega -->
+    <form (ngSubmit)="createLeague()">
+      <div class="mb-3">
+        <label for="leagueName" class="form-label">Nome della Lega:</label>
+        <input id="leagueName" class="form-control" [(ngModel)]="leagueName" name="leagueName" required />
+      </div>
+  
+      <div class="mb-3">
+        <h3>Seleziona gli utenti</h3>
+        <ul class="list-group">
+          <li *ngFor="let utenti of availableUsers" class="list-group-item d-flex justify-content-between align-items-center">
+            {{ utenti.nome }} (ID: {{ utenti.id }})
+            <button
+              class="btn btn-primary btn-sm"
+              (click)="toggleSelection(utenti)"
+              [ngClass]="{'btn-danger': selectedUsers.includes(utenti), 'btn-primary': !selectedUsers.includes(utenti)}"
+            >
+              {{ selectedUsers.includes(utenti) ? 'Rimuovi' : 'Aggiungi' }}
+            </button>
+          </li>
+        </ul>
+      </div>
+  
+      <button type="submit" class="btn btn-success">Crea Lega</button>
+    </form>
+  </div>

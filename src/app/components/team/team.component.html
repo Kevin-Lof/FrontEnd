@@ -1,21 +1,241 @@
-
-<div class="container">
-    <div class="row">
-        <div class="col-12 col-lg-3"></div>
-        <div class="col-12 col-lg-6">
-            <h1 class="text-center mt-4">Creazione Team</h1>
-            <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
-                <div class="form-group">
-                    <label for="teamName" class="form-label">Nome del team</label>
-                    <input type="text" id="teamName" name="teamName" required class="form-control" ngModel>
-                    <label for="teamAvatar" class="form-label">Foto</label>
-                    <input type="text" id="teamAvatar" name="teamAvatar" class="form-control" ngModel>
-                </div>
-                <button type="submit" [disabled]="loginForm.invalid" class="btn btn-success mt-4">Crea team</button>
-            </form>
-
-        </div>
-        <div class="col-12 col-lg-3"></div>
+<!-- <div>
+  <h2>Crea la tua squadra</h2>
+  <form>
+    <div>
+      <label for="teamName">Nome squadra:</label>
+      <input id="teamName" [(ngModel)]="teamName" name="teamName" />
     </div>
 
+    <div>
+      <h3>Portieri ({{ selectedGoalkeepers.length }}/{{ maxGoalkeepers }})</h3>
+      <ul *ngFor="let leggende of availablePlayers">
+        <div *ngIf="leggende.ruolo == 'PORTIERE'">
+          {{ leggende.nome }}
+          <button
+            (click)="addPlayer(leggende, 'Portiere')"
+            [disabled]="selectedGoalkeepers.length >= maxGoalkeepers"
+          >
+            Aggiungi
+          </button>
+        </div>
+      </ul>
+    </div>
+
+    <div>
+      <h3>Difensori ({{ selectedDefenders.length }}/{{ maxDefenders }})</h3>
+      <ul *ngFor="let leggende of availablePlayers">
+        <div *ngIf="leggende.ruolo == 'DIFENSORE'">
+          {{ leggende.nome }}
+          <button
+            (click)="addPlayer(leggende, 'Difensore')"
+            [disabled]="selectedDefenders.length >= maxDefenders"
+          >
+            Aggiungi
+          </button>
+        </div>
+      </ul>
+    </div>
+
+    <div>
+      <h3>
+        Centrocampisti ({{ selectedMidfielders.length }}/{{ maxMidfielders }})
+      </h3>
+      <ul *ngFor="let leggende of availablePlayers">
+        <div *ngIf="leggende.ruolo == 'CENTROCAMPISTA'">
+          {{ leggende.nome }}
+          <button
+            (click)="addPlayer(leggende, 'Centrocampista')"
+            [disabled]="selectedMidfielders.length >= maxMidfielders"
+          >
+            Aggiungi
+          </button>
+        </div>
+      </ul>
+    </div>
+
+    <div>
+      <h3>Attaccanti ({{ selectedForwards.length }}/{{ maxForwards }})</h3>
+      <ul *ngFor="let leggende of availablePlayers">
+        <div *ngIf="leggende.ruolo == 'ATTACCANTE'">
+          {{ leggende.nome }}
+          <button
+            (click)="addPlayer(leggende, 'Attaccante')"
+            [disabled]="selectedForwards.length >= maxForwards"
+          >
+            Aggiungi
+          </button>
+        </div>
+      </ul>
+    </div>
+
+    <div>
+      <h3>Squadra</h3>
+      <ul>
+        <li *ngFor="let leggende of selectedPlayers">
+          {{ leggende.nome }} ({{ leggende.ruolo }})
+        </li>
+      </ul>
+    </div>
+
+    <button type="button" (click)="finalizeTeam()">Finalizza Squadra</button>
+  </form>
+</div> -->
+<div class="container mt-5">
+  <h2 class="mb-4">Crea la tua squadra</h2>
+  <form>
+    <!-- Nome Squadra -->
+    <div class="mb-3">
+      <label for="teamName" class="form-label">Nome squadra:</label>
+      <input
+        id="teamName"
+        class="form-control"
+        [(ngModel)]="teamName"
+        name="teamName"
+      />
+    </div>
+
+    <!-- Portieri -->
+    <div class="mb-4">
+      <h3>Portieri ({{ selectedGoalkeepers.length }}/{{ maxGoalkeepers }})</h3>
+      <ul
+        class="list-group"
+        *ngFor="let leggende of availablePlayers"
+        class="list-group-item d-flex justify-content-between align-items-center"
+      >
+        <div *ngIf="leggende.ruolo == 'PORTIERE'">
+          {{leggende.avatar}} {{ leggende.nome }} {{leggende.cognome}}
+          <button
+            class="btn btn-success btn-sm"
+            (click)="addPlayer(leggende, 'PORTIERE')"
+            [disabled]="selectedGoalkeepers.length >= maxGoalkeepers"
+          >
+            Aggiungi
+          </button>
+        </div>
+      </ul>
+    </div>
+
+    <!-- Difensori -->
+    <div class="mb-4">
+      <h3>Difensori ({{ selectedDefenders.length }}/{{ maxDefenders }})</h3>
+      <ul
+        class="list-group"
+        *ngFor="let leggende of availablePlayers"
+        class="list-group-item d-flex justify-content-between align-items-center"
+      >
+        <div *ngIf="leggende.ruolo == 'DIFENSORE'">
+          {{ leggende.nome }}
+          <button
+            class="btn btn-success btn-sm"
+            (click)="addPlayer(leggende, 'DIFENSORE')"
+            [disabled]="selectedDefenders.length >= maxDefenders"
+          >
+            Aggiungi
+          </button>
+        </div>
+      </ul>
+    </div>
+
+    <!-- Centrocampisti -->
+    <div class="mb-4">
+      <h3>
+        Centrocampisti ({{ selectedMidfielders.length }}/{{ maxMidfielders }})
+      </h3>
+      <ul
+        class="list-group"
+        *ngFor="let leggende of availablePlayers"
+        class="list-group-item d-flex justify-content-between align-items-center"
+      >
+        <div *ngIf="leggende.ruolo == 'CENTROCAMPISTA'">
+          {{ leggende.nome }}
+          <button
+            class="btn btn-success btn-sm"
+            (click)="addPlayer(leggende, 'CENTROCAMPISTA')"
+            [disabled]="selectedMidfielders.length >= maxMidfielders"
+          >
+            Aggiungi
+          </button>
+        </div>
+      </ul>
+    </div>
+
+    <!-- Attaccanti -->
+    <div class="mb-4">
+      <h3>Attaccanti ({{ selectedForwards.length }}/{{ maxForwards }})</h3>
+      <ul
+        class="list-group"
+        *ngFor="let leggende of availablePlayers"
+        class="list-group-item d-flex justify-content-between align-items-center"
+      >
+        <div *ngIf="leggende.ruolo == 'ATTACCANTE'">
+          {{ leggende.nome }}
+          <button
+            class="btn btn-success btn-sm"
+            (click)="addPlayer(leggende, 'ATTACCANTE')"
+            [disabled]="selectedForwards.length >= maxForwards"
+          >
+            Aggiungi
+          </button>
+        </div>
+      </ul>
+    </div>
+
+    <!-- Squadra Selezionata -->
+    <div class="mb-4">
+      <h3>Squadra</h3>
+      <ul
+        class="list-group"
+        *ngFor="let leggende of selectedGoalkeepers"
+        class="list-group-item"
+      >
+        {{
+          leggende.nome
+        }}
+        ({{
+          leggende.ruolo
+        }})
+      </ul>
+      <ul
+        class="list-group"
+        *ngFor="let leggende of selectedDefenders"
+        class="list-group-item"
+      >
+        {{
+          leggende.nome
+        }}
+        ({{
+          leggende.ruolo
+        }})
+      </ul>
+      <ul
+        class="list-group"
+        *ngFor="let leggende of selectedMidfielders"
+        class="list-group-item"
+      >
+        {{
+          leggende.nome
+        }}
+        ({{
+          leggende.ruolo
+        }})
+      </ul>
+      <ul
+        class="list-group"
+        *ngFor="let leggende of selectedForwards"
+        class="list-group-item"
+      >
+        {{
+          leggende.nome
+        }}
+        ({{
+          leggende.ruolo
+        }})
+      </ul>
+    </div>
+
+    <!-- Pulsante di Finalizzazione -->
+    <button type="button" class="btn btn-primary" (click)="finalizeTeam()">
+      Finalizza Squadra
+    </button>
+  </form>
 </div>

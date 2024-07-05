@@ -1,18 +1,32 @@
 <div class="container mt-5">
-    <div class="card" *ngFor="let utente of utenti">
-        <div class="row g-0">
-            <div class="col-md-4 d-flex align-items-center justify-content-center">
-                <img src="https://via.placeholder.com/150" class="img-fluid rounded-circle" alt="Avatar" style="width: 100px; height: 100px;">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">{{utente.nome}} {{utente.cognome}}</h5>
-                    <p class="card-text">{{utente.username}}</p>
-                    <p class="card-text">This is a brief description or content of the card. It can include any text or additional information that you want to display within the card.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    <a href="/utenti/{{utente.id}}" class="btn btn-primary">View Details</a>
-                </div>
-            </div>
+  <div class="row g-3">
+    <div class="col-12 col-md-6 col-lg-4" *ngFor="let utente of utenti">
+      <div
+        class="card text-center border-0 shadow-sm h-100"
+        style="border-radius: 15px; background-color: #f8f9fa"
+      >
+        <div class="card-body p-4">
+          <div
+            class="bg-primary rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3"
+            style="width: 120px; height: 120px"
+          >
+            <img
+              src="https://via.placeholder.com/100"
+              class="img-fluid rounded-circle"
+              alt="Avatar"
+              style="width: 100px; height: 100px; border: 5px solid white"
+            />
+          </div>
+          <h5 class="card-title mb-1 text-primary">
+            {{ utente.nome }} {{ utente.cognome }}
+          </h5>
+          <p class="card-text text-secondary mb-1">{{ utente.username }}</p>
+          <p class="card-text text-muted">{{ utente.email }}</p>
+          <a href="/utenti/{{ utente.id }}" class="btn btn-primary btn-sm"
+            >View Details</a
+          >
         </div>
+      </div>
     </div>
+  </div>
 </div>

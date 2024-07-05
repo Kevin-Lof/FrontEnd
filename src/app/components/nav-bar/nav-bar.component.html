@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid col-9">
-      <a class="navbar-brand" href="#">FantaEternityMask</a>
+<nav class="navbar navbar-expand-lg p-0 m-0"  style="background-color: #69696B;">
+    <div class="container-fluid col-9 ps-0">
+      <img class="navbar-brand" src="../../../assets/foto/MaskEternity.png" class="m-0 p-0" alt="logo" style="width: 8%;"> 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -32,6 +32,10 @@
           <li *ngIf="user" class="nav-item">
             <a class="nav-link" [routerLink]="['/leggende']"
             routerLinkActive="active">Leggende</a>
+          </li>
+          <li *ngIf="user" class="nav-item">
+            <a class="nav-link" [routerLink]="['/league']"
+            routerLinkActive="active">Leghe</a>
           </li>
         </ul>
       </div>
