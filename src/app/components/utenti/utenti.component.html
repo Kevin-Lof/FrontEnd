@@ -1,28 +1,28 @@
 <div class="container mt-5">
   <div class="row g-3">
-    <div class="col-12 col-md-6 col-lg-4" *ngFor="let utente of utenti">
+    <div class="col-12 col-md-6 col-lg-3 gx-lg-5" *ngFor="let utente of utenti">
       <div
-        class="card text-center border-0 shadow-sm h-100"
-        style="border-radius: 15px; background-color: #f8f9fa"
+        class="card text-center border border-2 border-black h-100"
+        style="border-radius: 15px; background-color: #69696B; box-shadow: 5px 5px 5px rgb(180, 180, 180);"
       >
         <div class="card-body p-4">
           <div
-            class="bg-primary rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3"
-            style="width: 120px; height: 120px"
+            class="rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3"
+            style="width: 120px; height: 120px; background-color: #1F6694;"
           >
             <img
               src="https://via.placeholder.com/100"
               class="img-fluid rounded-circle"
               alt="Avatar"
-              style="width: 100px; height: 100px; border: 5px solid white"
+              style="width: 100px; height: 100px;"
             />
           </div>
-          <h5 class="card-title mb-1 text-primary">
+          <h5 class="card-title mb-1 text-white">
             {{ utente.nome }} {{ utente.cognome }}
           </h5>
-          <p class="card-text text-secondary mb-1">{{ utente.username }}</p>
-          <p class="card-text text-muted">{{ utente.email }}</p>
-          <a href="/utenti/{{ utente.id }}" class="btn btn-primary btn-sm"
+          <p class="card-text text-white-50 mb-1">{{ utente.username }}</p>
+          <p class="card-text text-white-50 mb-4">{{ utente.email }}</p>
+          <a href="/utenti/{{ utente.id }}" class="btn btn-sm text-white border border-1 border-black p-2" style="background-color: #1F6694;"
             >View Details</a
           >
         </div>

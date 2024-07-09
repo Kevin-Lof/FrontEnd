@@ -12,13 +12,8 @@ export class LeagueService {
   apiUrL = environment.apiURL;
   constructor(private http:HttpClient) {   }// Modifica con l'URL del tuo backend
 
-
-  getUsers(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrL}utenti`);
-  }
-
-  createLeague(leagueName: string, users: any[]): Observable<any> {
-    const payload = { name: leagueName, users: users.map(user => user.id) };
-    return this.http.post<any>(`${this.apiUrL}league`, payload);
+  creaLega(nome: string, utentiIds: number[]): Observable<any> {
+    const lega = { nome, utenti: utentiIds };
+    return this.http.post(this.apiUrL, lega);
   }
 }

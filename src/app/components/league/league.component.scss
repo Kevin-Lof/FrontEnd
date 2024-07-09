@@ -1,0 +1,36 @@
+.container {
+    max-width: 800px;
+  }
+  
+  .card {
+    border-radius: 0.5rem;
+  }
+  
+  .card-header {
+    font-size: 1.25rem;
+    font-weight: bold;
+    background-color: #69696B;
+  }
+  
+  .card-body h5 {
+    margin-bottom: 1rem;
+  }
+  
+  .form-check-inline {
+    margin-right: 1rem;
+  }
+  
+  .btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+    transition: background-color 0.2s, border-color 0.2s;
+  }
+  
+  .btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+  }
+  
+  .shadow-sm {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  }

@@ -17,5 +17,5 @@ export interface Leggende {
 
     valore : number;
 
-    squadraId : number;
+    teamId : number;
 }

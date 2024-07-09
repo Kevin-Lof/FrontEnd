@@ -40,6 +40,7 @@ export class TeamComponent implements OnInit {
     this.leggendeSrv.getPlayersByPosition().subscribe((data) => {
       
     this.availablePlayers = data.content;
+    
      console.log(data.content)
     });
 
@@ -65,21 +66,23 @@ export class TeamComponent implements OnInit {
   addPlayer(leggenda: Leggende, ruolo: string): void {
     
     if (ruolo == 'PORTIERE' && this.selectedGoalkeepers.length < this.maxGoalkeepers) {
+
+      leggenda.teamId = this.idUser.id
       this.selectedGoalkeepers.push(leggenda);
       console.log(this.selectedGoalkeepers)
       this.availablePlayers = this.availablePlayers.filter(p => p.id !== leggenda.id);
     } else if (ruolo === 'DIFENSORE' && this.selectedDefenders.length < this.maxDefenders) {
+      leggenda.teamId = this.idUser.id
       this.selectedDefenders.push(leggenda);
       this.availablePlayers = this.availablePlayers.filter(p => p.id !== leggenda.id);
     } else if (ruolo === 'CENTROCAMPISTA' && this.selectedMidfielders.length < this.maxMidfielders) {
+      leggenda.teamId = this.idUser.id
       this.selectedMidfielders.push(leggenda);
       this.availablePlayers = this.availablePlayers.filter(p => p.id !== leggenda.id);
     } else if (ruolo === 'ATTACCANTE' && this.selectedForwards.length < this.maxForwards) {
-      
        this.availablePlayers = this.availablePlayers.filter(p => p.id !== leggenda.id);
-       leggenda.squadraId = this.idUser.id
+       leggenda.teamId = this.idUser.id
        this.selectedForwards.push(leggenda);
-       console.log(this.selectedForwards)
     }
   }
 
@@ -95,7 +98,6 @@ export class TeamComponent implements OnInit {
       this.availableMidfielders.push(leggenda);
     } else if (ruolo === 'ATTACCANTE') {
       this.selectedForwards = this.selectedForwards.filter(p => p.id !== leggenda.id);
-      
       this.availableForwards.push(leggenda);
     }
   }
@@ -108,22 +110,17 @@ export class TeamComponent implements OnInit {
       ...this.selectedMidfielders,
       ...this.selectedForwards
     ];
-    const updateObservables = this.selectedPlayers.map(player => {
-     
-      return this.leggendeSrv.updateLeggenda(player);
+
+    
+     this.selectedPlayers.forEach(player => {
+console.log(player)
+       this.leggendeSrv.updateLeggenda(player).subscribe();
     });
     
-    // Execute all observables in parallel
-    forkJoin(updateObservables).subscribe(
-      results => {
-        console.log('All updates completed', results);
-      },
-      error => {
-        console.error('An error occurred during the updates', error);
-      }
-    );
-   
     
+    
+   
+    alert ("Squadra salvata")
     console.log('Squadra finale:', this.teamName, this.selectedPlayers);
   }
 }

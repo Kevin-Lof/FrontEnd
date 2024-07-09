@@ -31,7 +31,9 @@ getPlayersByPosition() : Observable<LeggendeResponse>{
   return this.http.get<LeggendeResponse>(`${this.apiUrL}leggende`);
 }
 
-updateLeggenda(leggenda: Leggende): Observable<LeggendeResponse> {
-  return this.http.put<LeggendeResponse>(`${this.apiUrL}leggende/${leggenda.id}`, leggenda);
+updateLeggenda(leggenda: Leggende): Observable<Leggende> {
+  const url = `${this.apiUrL}leggende/${leggenda.id}`;
+  console.log('Updating player:', leggenda);
+  return this.http.put<Leggende>(url, leggenda);
 }
 }

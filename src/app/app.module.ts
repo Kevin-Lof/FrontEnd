@@ -7,6 +7,7 @@ import { TokenInterceptor } from './auth/token.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
@@ -19,6 +20,9 @@ import { UtentiDetailsComponent } from './components/utenti-details/utenti-detai
 import { LeggendeComponent } from './components/leggende/leggende.component';
 import { TeamComponent } from './components/team/team.component';
 import { LeagueComponent } from './components/league/league.component';
+import { LineUpComponent } from './components/line-up/line-up.component';
+import { LegaCardComponent } from './components/lega-card/lega-card.component';
+
 
 
 
@@ -62,11 +66,15 @@ const routes: Route[] = [
     path: 'league',
     component: LeagueComponent,
     
+  },
+  {
+    path: 'line-up',
+    component: LineUpComponent,
+    
   }
-  
 ];
 @NgModule({
-  declarations: [AppComponent, HomeComponent, NavBarComponent,RegisterComponent, LoginComponent, UtentiComponent, UtentiDetailsComponent, LeggendeComponent, TeamComponent, LeagueComponent ],
+  declarations: [AppComponent, HomeComponent, NavBarComponent,RegisterComponent, LoginComponent, UtentiComponent, UtentiDetailsComponent, LeggendeComponent, TeamComponent, LeagueComponent, LineUpComponent, LegaCardComponent ],
   imports: [BrowserModule, RouterModule.forRoot(routes), FormsModule, HttpClientModule],
     providers: [
     {

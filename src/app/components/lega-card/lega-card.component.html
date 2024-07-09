@@ -1,0 +1,12 @@
+<div class="card shadow-sm">
+    <div class="card-header text-white">
+      {{ nomeLega }}
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Componenti della Lega:</h5>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item" *ngFor="let utente of utenti">
+            {{ utente.nome }} {{utente.cognome}}</li>
+      </ul>
+    </div>
+  </div>

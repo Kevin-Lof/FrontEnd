@@ -1,0 +1,167 @@
+.background-field{
+    margin-top: 12px;
+    min-height: calc(100vh - 100px); 
+    background-image: url('../../../assets/foto/formazione.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.box-button{
+    min-height: calc(100vh - 100px); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 125px;
+    
+}
+select{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(11, 67, 80, 0.8)
+    
+}
+select option{
+    background: white;
+}
+
+.goalkeeper{
+    position: absolute;
+    top: 215px;
+    left: 47.7%;
+}
+.goalkeeper_selected{
+    position: absolute;
+    top: 200px;
+    left: 42.5%;
+    width: 200px;
+}
+
+.defender_first_selected{
+    position: absolute;
+    top: 270px;
+    left: 38%;
+    width: 200px;
+}
+
+
+.defender_second_selected{
+    position: absolute;
+    top: 270px;
+    right: 40%;
+    width: 200px;
+}
+
+.midfielder_first_selected{
+    position: absolute;
+    top: 375px;
+    left: 38%;
+    width: 200px;
+}
+
+
+.midfielder_second_selected{
+    position: absolute;
+    top: 375px;
+    right: 40%;
+    width: 200px;
+}
+
+.forwards_first_selected{
+    position: absolute;
+    top: 500px;
+    left: 38%;
+    width: 200px;
+}
+
+
+.forwards_second_selected{
+    position: absolute;
+    top: 500px;
+    right: 40%;
+    width: 200px;
+}
+
+.defender_first{
+    position: absolute;
+    top: 270px;
+    left: 43%;
+}
+.defender_second{
+    position: absolute;
+    top: 270px;
+    right: 45%;
+}
+
+.midfielder_first{
+    position: absolute;
+    top: 383px;
+    left: 43%;
+}
+
+.midfielder_second{
+    position: absolute;
+    top: 383px;
+    right: 45%;
+}
+
+.forward_first{
+    position: absolute;
+    top: 500px;
+    left: 43%;
+}
+.forward_second{
+    position: absolute;
+    top: 500px;
+    right: 45%;
+}
+
+.goalkeeper_bench{
+    position: absolute;
+    right: 125px;
+    top:350px
+}
+
+.goalkeeper_bench_selected{
+    position: absolute;
+    right: 105px;
+    top:365px
+}
+.defender_bench{
+    position: absolute;
+    right: 180px;
+    top:330px
+}
+
+.defender_bench_selected{
+    position: absolute;
+    right: 160px;
+    top:330px
+}
+.midfielder_bench{
+    position: absolute;
+    right: 220px;
+    top:315px
+}
+
+.midfielder_bench_selected{
+    position: absolute;
+    right: 215px;
+    top:315px
+}
+
+.forward_bench{
+    position: absolute;
+    right: 270px;
+    top:305px
+}
+
+.forward_bench_selected{
+    position: absolute;
+    right: 270px;
+    top:305px
+}
+
+.saveLineupBtn{
+background-color: #BB2D3B;
+}

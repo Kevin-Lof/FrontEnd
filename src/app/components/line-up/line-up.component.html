@@ -1,0 +1,133 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-2 align-baseline">
+      <div class="box-button">
+     <button id="saveUpBtn" class="saveLineupBtn"  (click)="saveLineup()">Salva</button>
+      </div>
+    </div>
+    <div class="col-8">
+      <div class="d-flex flex-column justify-content-center align-content-center background-field">
+        <div class="container text-center">
+            <div class="row">
+                <div *ngIf="!goalkeeperSelected">
+                    <select class="goalkeeper" id="goalkeeper_select" [(ngModel)]="selectedGoalkeeper" (change)="selectGoalkeeper(selectedGoalkeeper)">
+                        <option class="p-4" value="" selected disabled>Seleziona Portieri</option>
+                        <option *ngFor="let player of availableGoalkeepers" [ngValue]="player">{{ player.nome }} {{player.cognome}}</option>
+                      </select>
+                </div>
+                <div class="goalkeeper_selected" *ngIf="goalkeeperSelected">
+                    <img src={{selectedGoalkeepers[0].avatar}} style="width: 60px;">
+                  </div>
+    
+                <div *ngIf="!defenderFirstSelected">
+                <select class="defender_first" id="defender_select_first" [(ngModel)]="selectedDefender" (change)="selectDefender(selectedDefender)">
+                  <option value="" selected disabled>Seleziona Difensori</option>
+                  <option *ngFor="let player of availableDefenders" [ngValue]="player">{{ player.nome }} {{player.cognome}}</option>
+                </select>
+                </div>
+                <div class="defender_first_selected" *ngIf="defenderFirstSelected">
+                    <img src={{selectedDefenders[0].avatar}} style="width: 60px;">
+                  </div>
+                  <div *ngIf="!defenderSecondSelected">
+                <select class="defender_second" id="defender_select_second" [(ngModel)]="selectedDefender" (change)="selectDefender(selectedDefender)">
+                    <option value="" selected disabled>Seleziona Difensori</option>
+                    <option *ngFor="let player of availableDefenders" [ngValue]="player">{{ player.nome }} {{player.cognome}}</option>
+                  </select>
+                  </div>
+                  <div class="defender_second_selected" *ngIf="defenderSecondSelected">
+                    <img src={{selectedDefenders[1].avatar}} style="width: 60px;">
+                  </div>
+              
+               <div *ngIf="!midfielderFirstSelected">
+                <select class="midfielder_first" id="midfielder_select_first" [(ngModel)]="selectedMidfielder" (change)="selectMidfielder(selectedMidfielder)">
+                  <option value="" selected disabled>Seleziona Centrocampisti</option>
+                  <option *ngFor="let player of availableMidfielders" [ngValue]="player">{{ player.nome }} {{player.cognome}}</option>
+                </select>
+              </div>
+              <div class="midfielder_first_selected" *ngIf="midfielderFirstSelected">
+                <img src={{selectedMidfielders[0].avatar}} style="width: 60px;">
+              </div>
+              <div *ngIf="!midfielderSecondSelected">
+                <select class="midfielder_second" id="midfielder_select_second" [(ngModel)]="selectedMidfielder" (change)="selectMidfielder(selectedMidfielder)">
+                  <option value="" selected disabled>Seleziona Centrocampisti</option>
+                  <option *ngFor="let player of availableMidfielders" [ngValue]="player">{{ player.nome }} {{player.cognome}}</option>
+                </select>
+              </div>
+              <div class="midfielder_second_selected" *ngIf="midfielderSecondSelected">
+                <img src={{selectedMidfielders[1].avatar}} style="width: 60px;">
+              </div>
+    
+              
+               <div *ngIf="!forwardFirstSelected">
+                <select class="forward_first" id="forwards_select_first" [(ngModel)]="selectedForward" (change)="selectForward(selectedForward)">
+                  <option value="" selected disabled>Seleziona Attaccanti</option>
+                  <option *ngFor="let player of availableForwards" [ngValue]="player">{{ player.nome }} {{player.cognome}}</option>
+                </select>
+              </div>
+               <div *ngIf="forwardFirstSelected" class="forwards_first_selected">
+                <img src={{selectedForwards[0].avatar}} style="width: 60px;">
+               </div>
+               <div *ngIf="!forwardSecondSelected">
+                <select class="forward_second" id="forwards_select_second" [(ngModel)]="selectedForward" (change)="selectForward(selectedForward)">
+                  <option value="" selected disabled>Seleziona Attaccanti</option>
+                  <option *ngFor="let player of availableForwards" [ngValue]="player">{{ player.nome }} {{player.cognome}}</option>
+                </select>
+              </div>
+               <div *ngIf="forwardFirstSelected" class="forwards_second_selected">
+                <img src={{selectedForwards[1].avatar}} style="width: 60px;">
+               </div>
+    
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="col-2">
+      
+        <img src="../../../assets/foto/panchina.jpg" style="max-width: 400px; margin-left: -180px; margin-top:220px">
+
+        <div *ngIf="!goalkeeperBenchSelected">
+          <select class="goalkeeper_bench" id="goalkeeper_select_bench" [(ngModel)]="selectedGoalkeeper" (change)="selectGoalkeeper(selectedGoalkeeper)">
+              <option class="p-4" value="" selected disabled>Seleziona Portieri</option>
+              <option *ngFor="let player of availableGoalkeepers" [ngValue]="player">{{ player.nome }} {{player.cognome}}</option>
+            </select>
+      </div>
+      <div class="goalkeeper_bench_selected" *ngIf="goalkeeperBenchSelected">
+          <img src={{selectedGoalkeepers[1].avatar}} style="width: 60px;">
+        </div>
+
+
+        <div *ngIf="!defenderBenchSelected">
+          <select class="defender_bench" id="defender_select_bench" [(ngModel)]="selectedDefender" (change)="selectDefender(selectedDefender)">
+              <option value="" selected disabled>Seleziona Difensori</option>
+              <option *ngFor="let player of availableDefenders" [ngValue]="player">{{ player.nome }} {{player.cognome}}</option>
+            </select>
+            </div>
+            <div class="defender_bench_selected" *ngIf="defenderBenchSelected">
+              <img src={{selectedDefenders[2].avatar}} style="width: 60px;">
+            </div>
+
+            <div *ngIf="!midfielderBenchSelected">
+              <select class="midfielder_bench" id="midfielder_select_bench" [(ngModel)]="selectedMidfielder" (change)="selectMidfielder(selectedMidfielder)">
+                  <option value="" selected disabled>Seleziona Centrocampisti</option>
+                  <option *ngFor="let player of availableMidfielders" [ngValue]="player">{{ player.nome }} {{player.cognome}}</option>
+                </select>
+                </div>
+                <div class="midfielder_bench_selected" *ngIf="midfielderBenchSelected">
+                  <img src={{selectedMidfielders[2].avatar}} style="width: 60px;">
+                </div>
+
+                <div *ngIf="!forwardBenchSelected">
+                  <select class="forward_bench" id="forward_select_bench" [(ngModel)]="selectedForward" (change)="selectForward(selectedForward)">
+                      <option value="" selected disabled>Seleziona Attaccanti</option>
+                      <option *ngFor="let player of availableForwards" [ngValue]="player">{{ player.nome }} {{player.cognome}}</option>
+                    </select>
+                    </div>
+                    <div class="forward_bench_selected" *ngIf="forwardBenchSelected">
+                      <img src={{selectedForwards[2].avatar}} style="width: 60px;">
+                    </div>
+    </div>
+  </div>
+</div>
+
+
+

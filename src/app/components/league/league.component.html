@@ -1,29 +1,32 @@
 <div class="container mt-5">
-    <h2 class="mb-4">Crea la tua lega</h2>
-    
-    <!-- Form per la creazione della lega -->
-    <form (ngSubmit)="createLeague()">
-      <div class="mb-3">
-        <label for="leagueName" class="form-label">Nome della Lega:</label>
-        <input id="leagueName" class="form-control" [(ngModel)]="leagueName" name="leagueName" required />
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-sm">
+        <div class="card-header text-white">
+          <h2 class="mb-0">Crea una nuova Lega</h2>
+        </div>
+        <div class="card-body">
+          <form (submit)="creaLega(legaName.value); $event.preventDefault()">
+            <div class="form-group">
+              <label for="legaName">Nome della Lega</label>
+              <input type="text" id="legaName" class="form-control" placeholder="Inserisci il nome della lega" #legaName required>
+            </div>
+            <div class="mt-3">
+              <h5>Seleziona i componenti:</h5>
+              <div *ngFor="let utente of utenti" class="form-check form-check-inline">
+                <input type="checkbox" class="form-check-input" (change)="onUserSelectionChange(utente.id, $event)" id="utente-{{ utente.id }}">
+                <label class="form-check-label" for="utente-{{ utente.id }}">
+                  {{ utente.nome }} {{utente.cognome}}
+                </label>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-success mt-4">Crea Lega</button>
+          </form>
+        </div>
       </div>
-  
-      <div class="mb-3">
-        <h3>Seleziona gli utenti</h3>
-        <ul class="list-group">
-          <li *ngFor="let utenti of availableUsers" class="list-group-item d-flex justify-content-between align-items-center">
-            {{ utenti.nome }} (ID: {{ utenti.id }})
-            <button
-              class="btn btn-primary btn-sm"
-              (click)="toggleSelection(utenti)"
-              [ngClass]="{'btn-danger': selectedUsers.includes(utenti), 'btn-primary': !selectedUsers.includes(utenti)}"
-            >
-              {{ selectedUsers.includes(utenti) ? 'Rimuovi' : 'Aggiungi' }}
-            </button>
-          </li>
-        </ul>
-      </div>
-  
-      <button type="submit" class="btn btn-success">Crea Lega</button>
-    </form>
+
+      <!-- Card della lega creata -->
+      <app-lega-card *ngIf="legaCreata" [nomeLega]="legaCreata.nome" [utenti]="legaCreata.utenti" class="mt-4"></app-lega-card>
+    </div>
   </div>
+</div>
