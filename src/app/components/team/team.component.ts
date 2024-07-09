@@ -19,7 +19,7 @@ export class TeamComponent implements OnInit {
   availableForwards!: Leggende[];
 
   maxGoalkeepers: number = 2;
-  maxDefenders: number = 4;
+  maxDefenders: number = 3;
   maxMidfielders: number = 4;
   maxForwards: number = 4;
 
